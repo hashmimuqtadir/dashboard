@@ -183,7 +183,7 @@ export default function Expenses() {
     },
   ];
 
-  const onMouseOver = (data: any, index: number) => setActiveIndex(index);
+  const onMouseOver = (_data: any, index: number) => setActiveIndex(index);
 
   return (
     <>
@@ -225,7 +225,7 @@ export default function Expenses() {
                   fill="rgba(21, 122, 255, .2)"
                   onMouseOver={onMouseOver}
                 >
-                  {data.map((entry, index) => (
+                  {data.map((_entry, index) => (
                     <Cell
                       cursor="pointer"
                       fill={
@@ -319,11 +319,11 @@ export default function Expenses() {
                   </div>
                   <div className={styles.spendCategoryBar}>
                     <div 
-                    style={{width:`${(category.price / spendCategories.reduce((acc, current) => acc = current.price, 0)) * 10  }%`,}}
+                    style={{width:`${(category.price / spendCategories.reduce((acc, current) => acc + current.price, 0)) * 100  }%`,}}
                     className={styles.spendCategoryColoredBar}></div>
                   </div>
                 </li>
-                )}
+                )} 
               </ul>
 
                 <div className={styles.saveMoneyDiv}>
